@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WENDIGO</title>
+  <style>
+    :root {
+      --bg-light: #f9f9f9;
+      --text-light: #111;
+      --bg-dark: #111;
+      --text-dark: #f9f9f9;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .hero {
+      height: 80vh;
+      background-image: url('https://images.unsplash.com/photo-1602810311595-74af7b3b938d');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background: none;
+      border: 2px solid currentColor;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: currentColor;
+      color: inherit;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    .toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      border: 2px solid;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: transparent;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+
+    .light .toggle {
+      color: #111;
+      border-color: #111;
+      background-color: #f9f9f9;
+    }
+
+    .dark .toggle {
+      color: #f9f9f9;
+      border-color: #f9f9f9;
+      background-color: #111;
+    }
+
+    .toggle img {
+      vertical-align: middle;
+    }
+    nav button {
+  margin: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 2px solid currentColor;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background-color: currentColor;
+  color: white;
+}
+  </style>
+</head>
+<body class="light">
+  <nav style="text-align: center; padding: 1rem;">
+  <button onclick="scrollToSection('products')">Buzos</button>
+  <button onclick="scrollToSection('camisetas')">Camisetas</button>
+  <button onclick="scrollToSection('pantalones')">Pantalones</button>
+</nav>
+  <button class="toggle" onclick="toggleTheme()">
+    <img id="theme-icon" src="icons/moon.png" alt="modo" width="24" height="24" />
+  </button>
+  <header>WENDIGO</header>
+
+  <div class="hero">
+    <button onclick="scrollToProducts()">Ver Buzos</button>
+  </div>
+
+<section class="products" id="products">
+  <h2 style="grid-column: 1 / -1; text-align: center;">Buzos</h2>
+  <div class="product">
+    <img src="./buzos/buzo1.jpg" alt="Buzo 1">
+    <p>Buzo Oversize - Negro</p>
+  </div>
+  <div class="product">
+    <img src="./buzos/buzo2.jpg" alt="Buzo 2">
+    <p>Buzo Minimal Beige</p>
+  </div>
+  <div class="product">
+    <img src="./buzos/buzo3.jpg" alt="Buzo 3">
+    <p>Buzo Logo Reflectivo</p>
+  </div>
+</section>
+
+<section class="products" id="camisetas">
+  <h2 style="grid-column: 1 / -1; text-align: center;">Camisetas</h2>
+  <div class="product">
+    <img src="./buzos/buzo1.jpg" alt="Camiseta 1">
+    <p>Camiseta Oversize Blanca</p>
+  </div>
+  <div class="product">
+    <img src="./buzos/buzo2.jpg" alt="Camiseta 2">
+    <p>Camiseta Logo Frontal</p>
+  </div>
+</section>
+
+<section class="products" id="pantalones">
+  <h2 style="grid-column: 1 / -1; text-align: center;">Pantalones</h2>
+  <div class="product">
+    <img src="./buzos/buzo3.jpg" alt="Pantalón 1">
+    <p>Pantalón Cargo Negro</p>
+  </div>
+  <div class="product">
+    <img src="./buzos/buzo1.jpg" alt="Pantalón 2">
+    <p>Pantalón Deportivo Gris</p>
+  </div>
+</section>
+
+  <footer>&copy; 2025 WENDIGO. Todos los derechos reservados.</footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById("theme-icon");
+
+      if (body.classList.contains("dark")) {
+        body.classList.replace("dark", "light");
+        icon.src = "icons/moon.png";
+      } else {
+        body.classList.replace("light", "dark");
+        icon.src = "icons/sun.png";
+      }
+    }
+
+    function scrollToProducts() {
+      document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+  <script>
+  function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById("theme-icon");
+
+    if (body.classList.contains("dark")) {
+      body.classList.replace("dark", "light");
+      icon.src = "./icons/moon.png";
+    } else {
+      body.classList.replace("light", "dark");
+      icon.src = "./icons/sun.png";
+    }
+  }
+
+  function scrollToProducts() {
+    document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+</body>
+</html>

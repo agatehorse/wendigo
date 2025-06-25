@@ -193,30 +193,14 @@ nav button:hover {
 
   <footer>&copy; 2025 WENDIGO. Todos los derechos reservados.</footer>
 
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const icon = document.getElementById("theme-icon");
-
-      if (body.classList.contains("dark")) {
-        body.classList.replace("dark", "light");
-        icon.src = "icons/moon.png";
-      } else {
-        body.classList.replace("light", "dark");
-        icon.src = "icons/sun.png";
-      }
-    }
-
-    function scrollToProducts() {
-      document.getElementById("products").scrollIntoView({ behavior: "smooth" });
-    }
-  </script>
-  <script>
+<script>
   function toggleTheme() {
     const body = document.body;
     const icon = document.getElementById("theme-icon");
 
-    if (body.classList.contains("dark")) {
+    const isDark = body.classList.contains("dark");
+
+    if (isDark) {
       body.classList.replace("dark", "light");
       icon.src = "./icons/moon.png";
     } else {
@@ -227,6 +211,10 @@ nav button:hover {
 
   function scrollToProducts() {
     document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
   }
 </script>
 </body>

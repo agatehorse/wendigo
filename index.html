@@ -89,38 +89,35 @@
       font-size: 0.9rem;
       opacity: 0.6;
     }
+.toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: transparent;
+  transition: all 0.3s;
+  z-index: 999;
+}
 
-    .toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      border: 2px solid;
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      background-color: transparent;
-      transition: all 0.3s;
-      z-index: 999;
-    }
+.light .toggle {
+  color: #111;
+  border-color: #111;
+  background-color: #f9f9f9;
+}
 
-    .light .toggle {
-      color: #111;
-      border-color: #111;
-      background-color: #f9f9f9;
-    }
+.dark .toggle {
+  color: #f9f9f9;
+  border-color: #f9f9f9;
+  background-color: #111;
+}
 
-    .dark .toggle {
-      color: #f9f9f9;
-      border-color: #f9f9f9;
-      background-color: #111;
-    }
-
-    .toggle img {
-      vertical-align: middle;
-    }
-    nav button {
+/* Botones del nav */
+.nav-button {
   margin: 0.5rem;
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
@@ -130,11 +127,7 @@
   transition: 0.3s;
 }
 
-nav button:hover {
-  background-color: currentColor;
-  color: white;
-}
-    .light .nav-button {
+.light .nav-button {
   color: #111;
   border-color: #111;
   background-color: #f9f9f9;
@@ -145,6 +138,12 @@ nav button:hover {
   border-color: #f9f9f9;
   background-color: #111;
 }
+
+.nav-button:hover {
+  background-color: currentColor;
+  color: white;
+}
+    
   </style>
 </head>
 

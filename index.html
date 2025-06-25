@@ -136,11 +136,24 @@ nav button:hover {
 }
   </style>
 </head>
+/* Botones del nav adaptados al tema */
+.light .nav-button {
+  color: #111;
+  border-color: #111;
+  background-color: #f9f9f9;
+}
+
+.dark .nav-button {
+  color: #f9f9f9;
+  border-color: #f9f9f9;
+  background-color: #111;
+}
+
 <body class="light">
-  <nav style="text-align: center; padding: 1rem;">
-  <button onclick="scrollToSection('products')">Buzos</button>
-  <button onclick="scrollToSection('camisetas')">Camisetas</button>
-  <button onclick="scrollToSection('pantalones')">Pantalones</button>
+<nav style="text-align: center; padding: 1rem;">
+  <button class="nav-button" onclick="scrollToSection('products')">Buzos</button>
+  <button class="nav-button" onclick="scrollToSection('camisetas')">Camisetas</button>
+  <button class="nav-button" onclick="scrollToSection('pantalones')">Pantalones</button>
 </nav>
   <button class="toggle" onclick="toggleTheme()">
     <img id="theme-icon" src="icons/moon.png" alt="modo" width="24" height="24" />
